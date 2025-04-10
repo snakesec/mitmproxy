@@ -1,8 +1,10 @@
 rm -rf /opt/ANDRAX/mitmproxy
 
-source /opt/ANDRAX/PYENV/python3/bin/activate
+python3 -m venv /opt/ANDRAX/mitmproxy
 
-/opt/ANDRAX/PYENV/python3/bin/python3 -m pip install wheel setuptools setuptools_rust
+source /opt/ANDRAX/mitmproxy/bin/activate
+
+/opt/ANDRAX/mitmproxy/bin/python3 -m pip install wheel setuptools setuptools_rust
 
 if [ $? -eq 0 ]
 then
@@ -24,7 +26,7 @@ else
   exit 1
 fi
 
-/opt/ANDRAX/PYENV/python3/bin/pip3 install .
+/opt/ANDRAX/mitmproxy/bin/pip3 install .
 
 if [ $? -eq 0 ]
 then
