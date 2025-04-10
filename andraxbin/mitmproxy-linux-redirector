@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/opt/ANDRAX/PYENV/python3/bin/mitmproxy-linux-redirector "$@"
