@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, type JSX } from "react";
 import { useAppDispatch, useAppSelector } from "../../ducks";
 import classnames from "classnames";
 import {
@@ -156,13 +156,13 @@ timestamp.headerName = "Start time";
 export const quickactions: FlowColumn = ({ flow }) => {
     const dispatch = useAppDispatch();
 
-    let resume_or_replay: ReactElement | null = null;
+    let resume_or_replay: ReactElement<any> | null = null;
     if (flow.intercepted) {
         resume_or_replay = (
             <a
                 href="#"
                 className="quickaction"
-                onClick={() => dispatch(flowActions.resume(flow))}
+                onClick={() => dispatch(flowActions.resume([flow]))}
             >
                 <i className="fa fa-fw fa-play text-success" />
             </a>
@@ -172,7 +172,7 @@ export const quickactions: FlowColumn = ({ flow }) => {
             <a
                 href="#"
                 className="quickaction"
-                onClick={() => dispatch(flowActions.replay(flow))}
+                onClick={() => dispatch(flowActions.replay([flow]))}
             >
                 <i className="fa fa-fw fa-repeat text-primary" />
             </a>
